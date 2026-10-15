@@ -1,0 +1,89 @@
+{
+  "version": "initial-materials",
+  "publication_date": "2026-10-15",
+  "scope": "Documentation and ten initial system-prompt reconstructions",
+  "hash_algorithm": "SHA-256",
+  "self_excluded": true,
+  "files": [
+    {
+      "path": "README.md",
+      "bytes": 4500,
+      "sha256": "f97b48fd48a5dc5bd0f3872b7f0d21dd1348b02c3bcc786619dda96cabf0687e"
+    },
+    {
+      "path": "README_zh.md",
+      "bytes": 2497,
+      "sha256": "7af1c41d40f3ba2b586881dc98622d3f6a5b50238fe6f99b2cb08eb21e92328c"
+    },
+    {
+      "path": "docs/STRUCTURE.md",
+      "bytes": 3723,
+      "sha256": "1b6a8704ca406d23547104238b12c4f3df268c084b0c8086c34c59f4d868983a"
+    },
+    {
+      "path": "docs/prompts/README.md",
+      "bytes": 2534,
+      "sha256": "133de88360469f57ec11b7ab388dcf2e991b88cd414174ac96b75b878b8845cf"
+    },
+    {
+      "path": "docs/prompts/baseline_4x3_initial_system.txt",
+      "bytes": 1666,
+      "sha256": "2cd24e0b020ad758023431a949711c945a68863a96eb07f2e790636112d23b1a"
+    },
+    {
+      "path": "docs/prompts/baseline_5x6_initial_system.txt",
+      "bytes": 1666,
+      "sha256": "b102619667344669d3010cd12244548b84bbc40b27801ce6b0e8a8f71c4dc98f"
+    },
+    {
+      "path": "docs/prompts/efficient_4x3_initial_system.txt",
+      "bytes": 3132,
+      "sha256": "8ea6ef45b266e46a35cbd857b9ce5dcf7bc690a776ece0c3da0bb266c87e86dd"
+    },
+    {
+      "path": "docs/prompts/efficient_5x6_initial_system.txt",
+      "bytes": 3132,
+      "sha256": "1e076c711d89e5c39a81e2dea2cf0b9a5d0e7365cb4590828f1bdf745b2120f0"
+    },
+    {
+      "path": "docs/prompts/freetext_memory_4x3_initial_system.txt",
+      "bytes": 2415,
+      "sha256": "7be0b91b2aaa890ed720479b6432389af69562aa59e3a97f7b066ac4bea034d4"
+    },
+    {
+      "path": "docs/prompts/freetext_memory_5x6_initial_system.txt",
+      "bytes": 2415,
+      "sha256": "7954f4113288563bd8e382b3d063df815693ab08e5f6f97243703c1369e90bd1"
+    },
+    {
+      "path": "docs/prompts/minimal_4x3_initial_system.txt",
+      "bytes": 412,
+      "sha256": "ac889593fcc8b2ac7b7cddb09084b61fd72cb9ff83b93be8f348ef5c0614d40b"
+    },
+    {
+      "path": "docs/prompts/minimal_5x6_initial_system.txt",
+      "bytes": 412,
+      "sha256": "49d82fe3e046086f598ca0da1ec72b7dbe05967c6b90bd6259f65c66f495f595"
+    },
+    {
+      "path": "docs/prompts/prompt_manifest.json",
+      "bytes": 1393,
+      "sha256": "bb9ca61a60e7bda42d9988d96403d93a756e00c519654531185a45e2dc8729ab"
+    },
+    {
+      "path": "docs/prompts/spatial_cot_4x3_initial_system.txt",
+      "bytes": 4021,
+      "sha256": "3ec4dd545e15a49ad7f1c3ec8cc8bb0af02e000e2c7461728fce99cd57741db6"
+    },
+    {
+      "path": "docs/prompts/spatial_cot_5x6_initial_system.txt",
+      "bytes": 4021,
+      "sha256": "b6e8bda5d0623bacf8b9bf20c0142494033b53a19b6d587a91a2d473a6dd98bd"
+    },
+    {
+      "path": "docs/protocol.md",
+      "bytes": 4794,
+      "sha256": "8deefed739327b401d42edf22ea18e3cfbe9928fac9228c099550d98aedb0f89"
+    }
+  ]
+}

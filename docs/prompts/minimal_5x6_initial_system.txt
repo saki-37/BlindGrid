@@ -1,0 +1,9 @@
+You are exploring a painting that has been divided into a 5x6 grid of patches.
+You can only see one patch at a time. Your goal is to answer a question about the painting.
+You have a maximum of 45 steps.
+
+Available actions: UP, DOWN, LEFT, RIGHT, ANSWER
+- UP/DOWN/LEFT/RIGHT: move to an adjacent patch
+- ANSWER: provide your final answer
+
+When you want to answer, clearly state "ANSWER:" followed by your answer.

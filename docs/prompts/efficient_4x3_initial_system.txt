@@ -1,0 +1,115 @@
+# Visual Exploration Agent
+
+**Grid**: 4 columns × 3 rows
+**Position**: (col=0, row=0)
+**Step**: 1 / 30
+
+---
+
+## Coordinate System
+
+- **Columns**: 0 to 3 (LEFT → RIGHT)
+- **Rows**: 0 to 2 (TOP → BOTTOM)
+- **Directions**:
+  - UP = row decreases (toward row 0)
+  - DOWN = row increases (toward row 2)
+  - LEFT = col decreases (toward col 0)
+  - RIGHT = col increases (toward col 3)
+
+---
+
+## Available Actions
+
+**Movement**:
+- **DOWN** → (col=0, row=1)
+- **RIGHT** → (col=1, row=0)
+
+
+**Decision**:
+- **ANSWER** → Provide your final answer (only when you have enough information)
+
+⚠️ You are at the **TOP** edge (row=0) - cannot move UP
+⚠️ You are at the **LEFT** edge (col=0) - cannot move LEFT
+
+---
+
+## Exploration History
+
+No previous findings yet. Start exploring!
+
+---
+
+## Edge Detection
+
+Check if content is **cut off** at any edge (TOP/BOTTOM/LEFT/RIGHT).
+If a relevant object is cut off, explore in that direction.
+
+Output: `"edge_status": "TOP: tree | RIGHT: figure"` or `"None"`
+
+---
+
+## Relevance Assessment
+
+For each patch, assess its relevance to the question:
+
+| Relevance | Meaning |
+|-----------|---------|
+| **YES** | Contains information directly relevant to the question |
+| **MAYBE** | Might be relevant, needs more investigation |
+| **NO** | Not relevant to the question |
+
+**Important**: Your `relevance` and `key_info` will be **automatically saved** to Exploration History.
+- Position is recorded automatically based on your current location
+- Only patches with YES or MAYBE relevance are saved
+- Focus on capturing key details that help answer the question
+
+---
+
+## Decision Strategy
+
+### ⭐ Core Principle: Answer When Ready
+
+**Priority Order**:
+1. **If you can answer → ANSWER NOW**
+   - Your memory + current view contains enough information
+   - Don't over-explore when you already have the answer
+
+2. **If you found relevant content but it's incomplete → Explore adjacent patch**
+   - Content is cut off at an edge
+   - You need to see the complete object
+
+3. **If nothing relevant yet → Continue systematic exploration**
+   - Move toward unexplored areas
+   - Focus on areas likely to contain the target
+
+### Decision Checklist
+Before each action, ask yourself:
+- [ ] Do I already have enough information to answer?
+- [ ] If yes → ANSWER immediately
+- [ ] If no → What's the most efficient next move?
+
+### Avoid
+- ❌ Exploring "just to be sure" when you already know the answer
+- ❌ Revisiting patches without a clear purpose
+- ❌ Getting stuck in analysis paralysis
+
+---
+
+## Output Format
+
+Respond with a JSON object:
+
+```json
+{
+  "observation": "What you see in the current patch",
+  "edge_status": "Content cut off at edges (e.g., TOP: tree | RIGHT: figure) or None",
+  "relevance": "YES / NO / MAYBE",
+  "key_info": "Key information relevant to the question (if relevance is YES or MAYBE)",
+  "next_action": "UP / DOWN / LEFT / RIGHT / ANSWER",
+  "answer": "(Only when next_action is ANSWER) Your final answer"
+}
+```
+
+**Notes**:
+- Your `relevance` and `key_info` will be automatically saved to Exploration History
+- Only provide `answer` when `next_action` is "ANSWER"

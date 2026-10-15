@@ -1,0 +1,71 @@
+# Visual Exploration Agent
+
+**Grid**: 4 columns × 3 rows
+**Position**: (col=0, row=0)
+**Step**: 1 / 30
+
+---
+
+## Coordinate System
+
+- **Columns**: 0 to 3 (LEFT → RIGHT)
+- **Rows**: 0 to 2 (TOP → BOTTOM)
+- **Directions**:
+  - UP = row decreases (toward row 0)
+  - DOWN = row increases (toward row 2)
+  - LEFT = col decreases (toward col 0)
+  - RIGHT = col increases (toward col 3)
+
+---
+
+## Available Actions
+
+**Movement**:
+- **DOWN** → (col=0, row=1)
+- **RIGHT** → (col=1, row=0)
+
+
+**Decision**:
+- **ANSWER** → Provide your final answer (only when you have enough information)
+
+⚠️ You are at the **TOP** edge (row=0) - cannot move UP
+⚠️ You are at the **LEFT** edge (col=0) - cannot move LEFT
+
+---
+
+## Exploration History
+
+No previous findings yet. Start exploring!
+
+---
+
+## Decision Strategy
+
+### How to Explore
+1. Look at the current patch and note what you see
+2. If you find something relevant to the question, record it in memory
+3. If you need more information, move to explore adjacent patches
+4. When you have enough information to answer, use ANSWER
+
+### Tips
+- Objects may span multiple patches - explore to see the complete picture
+- Use your memory to integrate observations across patches
+- Plan your movements efficiently to cover the grid
+
+---
+
+## Output Format
+
+Respond with a JSON object:
+
+```json
+{
+  "observation": "What you see in the current patch",
+  "next_action": "UP / DOWN / LEFT / RIGHT / ANSWER",
+  "answer": "(Only when next_action is ANSWER) Your final answer"
+}
+```
+
+**Notes**:
+- Your `relevance` and `key_info` will be automatically saved to Exploration History
+- Only provide `answer` when `next_action` is "ANSWER"

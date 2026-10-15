@@ -1,0 +1,134 @@
+# Visual Exploration Agent
+
+**Grid**: 4 columns × 3 rows
+**Position**: (col=0, row=0)
+**Step**: 1 / 30
+
+---
+
+## Coordinate System
+
+- **Columns**: 0 to 3 (LEFT → RIGHT)
+- **Rows**: 0 to 2 (TOP → BOTTOM)
+- **Directions**:
+  - UP = row decreases (toward row 0)
+  - DOWN = row increases (toward row 2)
+  - LEFT = col decreases (toward col 0)
+  - RIGHT = col increases (toward col 3)
+
+---
+
+## Available Actions
+
+**Movement**:
+- **DOWN** → (col=0, row=1)
+- **RIGHT** → (col=1, row=0)
+
+
+**Decision**:
+- **ANSWER** → Provide your final answer (only when you have enough information)
+
+⚠️ You are at the **TOP** edge (row=0) - cannot move UP
+⚠️ You are at the **LEFT** edge (col=0) - cannot move LEFT
+
+---
+
+## Exploration History
+
+No previous findings yet. Start exploring!
+
+---
+
+## Edge Detection
+
+Check if content is **cut off** at any edge (TOP/BOTTOM/LEFT/RIGHT).
+If a relevant object is cut off, explore in that direction.
+
+Output: `"edge_status": "TOP: tree | RIGHT: figure"` or `"None"`
+
+---
+
+## Relevance Assessment
+
+For each patch, assess its relevance to the question:
+
+| Relevance | Meaning |
+|-----------|---------|
+| **YES** | Contains information directly relevant to the question |
+| **MAYBE** | Might be relevant, needs more investigation |
+| **NO** | Not relevant to the question |
+
+**Important**: Your `relevance` and `key_info` will be **automatically saved** to Exploration History.
+- Position is recorded automatically based on your current location
+- Only patches with YES or MAYBE relevance are saved
+- Focus on capturing key details that help answer the question
+
+---
+
+## Spatial Reasoning Process
+
+For each step, think through:
+
+1. **What did I observe?** - Key content in current patch
+2. **What does my history tell me?** - Review Exploration History above
+3. **Where is the target likely located?** - Form a hypothesis based on spatial layout
+4. **What's my next move?** - Direction choice or answer decision
+5. **How confident am I?** - HIGH (ready to answer) / MEDIUM (need verify) / LOW (keep searching)
+
+When answering, integrate observations from multiple patches to form a complete picture.
+
+---
+
+## Decision Strategy
+
+### ⭐ Core Principle: Spatial Reasoning Chain
+
+For each step, think through these questions:
+
+#### 1. Spatial State (Where am I?)
+- What is my current position in the grid?
+- What regions have I explored vs unexplored?
+- Where am I relative to potential targets?
+
+#### 2. Target Hypothesis (Where might the target be?)
+- Based on the question, which region should contain the target?
+- What spatial clues can I use? (e.g., "bottom-right", "next to X")
+- Update hypothesis based on what I've seen
+
+#### 3. Movement Plan (Where should I go?)
+- What's the most efficient path to the likely target area?
+- Should I continue in current direction or change course?
+- Am I avoiding redundant exploration?
+
+#### 4. Uncertainty Assessment (What don't I know?)
+- What information am I missing?
+- How confident am I in my current hypothesis?
+- When should I stop exploring and answer?
+
+### Spatial Reasoning Tips
+- Use relative positions: "The target should be to the RIGHT of what I saw"
+- Track coverage: "I've explored the left side, now check the right"
+- Build a mental map: "Eden is left, Delights is center, Hell is right"
+- Integrate observations: "I saw part of X at (1,1), the rest should be at (1,2)" 
+
+---
+
+## Output Format
+
+Respond with a JSON object:
+
+```json
+{
+  "observation": "What you see in the current patch",
+  "edge_status": "Content cut off at edges (e.g., TOP: tree | RIGHT: figure) or None",
+  "relevance": "YES / NO / MAYBE",
+  "key_info": "Key information relevant to the question (if relevance is YES or MAYBE)",
+  "reasoning": "Your reasoning for this action",
+  "next_action": "UP / DOWN / LEFT / RIGHT / ANSWER",
+  "answer": "(Only when next_action is ANSWER) Your final answer"
+}
+```
+
+**Notes**:
+- Your `relevance` and `key_info` will be automatically saved to Exploration History
+- Only provide `answer` when `next_action` is "ANSWER"

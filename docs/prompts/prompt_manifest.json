@@ -1,0 +1,42 @@
+[
+  {
+    "file": "minimal_5x6_initial_system.txt",
+    "sha256": "49d82fe3e046086f598ca0da1ec72b7dbe05967c6b90bd6259f65c66f495f595"
+  },
+  {
+    "file": "minimal_4x3_initial_system.txt",
+    "sha256": "ac889593fcc8b2ac7b7cddb09084b61fd72cb9ff83b93be8f348ef5c0614d40b"
+  },
+  {
+    "file": "efficient_4x3_initial_system.txt",
+    "sha256": "8ea6ef45b266e46a35cbd857b9ce5dcf7bc690a776ece0c3da0bb266c87e86dd"
+  },
+  {
+    "file": "efficient_5x6_initial_system.txt",
+    "sha256": "1e076c711d89e5c39a81e2dea2cf0b9a5d0e7365cb4590828f1bdf745b2120f0"
+  },
+  {
+    "file": "freetext_memory_5x6_initial_system.txt",
+    "sha256": "7954f4113288563bd8e382b3d063df815693ab08e5f6f97243703c1369e90bd1"
+  },
+  {
+    "file": "freetext_memory_4x3_initial_system.txt",
+    "sha256": "7be0b91b2aaa890ed720479b6432389af69562aa59e3a97f7b066ac4bea034d4"
+  },
+  {
+    "file": "spatial_cot_4x3_initial_system.txt",
+    "sha256": "3ec4dd545e15a49ad7f1c3ec8cc8bb0af02e000e2c7461728fce99cd57741db6"
+  },
+  {
+    "file": "baseline_5x6_initial_system.txt",
+    "sha256": "b102619667344669d3010cd12244548b84bbc40b27801ce6b0e8a8f71c4dc98f"
+  },
+  {
+    "file": "spatial_cot_5x6_initial_system.txt",
+    "sha256": "b6e8bda5d0623bacf8b9bf20c0142494033b53a19b6d587a91a2d473a6dd98bd"
+  },
+  {
+    "file": "baseline_4x3_initial_system.txt",
+    "sha256": "2cd24e0b020ad758023431a949711c945a68863a96eb07f2e790636112d23b1a"
+  }
+]
